@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<addon scheme="2.0">
+
+	<!-- アドオンの識別子。アドオンのフォルダ名と同じにして下さい。 /addons/webcake -->
+    <id>webcake</id>
+
+    <!-- アドオンのバージョン -->
+    <version>1.0</version> 
+
+    <!-- アドオンのデフォルト言語。このオプションが指定されていない場合は英語（EN）として認識されます -->
+    <default_language>EN</default_language> 
+
+    <!-- デフォルト言語でのアドオン名 -->
+    <name>WebCake Addon</name>
+
+    <!-- デフォルト言語での説明文 -->
+    <description>It is an add-on of original WebCake! </description>
+
+    <!-- アドオンの優先順位 数値が大きなアドオンほど後で実行されます -->
+    <priority>100</priority>
+
+    <!-- アドオンをインストールした直後のステータス（有効/無効）デフォルトでは無効となります。（active/disabled） -->
+    <status>active</status>
+
+    <!-- デフォルト言語以外の言語変数の翻訳に関する設定 -->
+    <translations> 
+        <!--
+            @for - 翻訳が提供されるプロパティー。 値: name/description/tooltip. オプション：デフォルトの値は"name"です。
+            @lang - 翻訳する言語コード。ショップで使用されていない言語に関しては、インストールされません。
+        -->
+        <item for="name" lang="JA">WebCakeアドオン</item>
+        <item for="description" lang="JA">WebCakeのオリジナルアドオンです！</item>
+    </translations>
+   
+	<!-- アドオンの設定ブロック（オプション）
+        @layout - 設定ページがどのように開かれるか（ポップアップ表示/別ページ）を定義します。(popup/separate) オプション：デフォルトは"popup"となります。
+    -->
+	<settings layout="popup">
+		<!-- アドオン設定ページ上部のタブの一覧 -->
+		<sections>
+			<!-- 表示されるタブに関する設定
+                @id - テキストの識別子（ID）。このIDは次のコードでアクセス出来ます。Registry::get('addons.[addon_id].[setting_id]')
+                @edition_type - この設定が利用可能なCS-Cartのエディションのリスト
+            -->
+			<section id="section1">
+				<!-- デフォルト言語でのタブ名 -->
+				<name>Generic settings1</name>
+				<translations>
+					<!-- 翻訳言語でのタブ名 -->
+					<item lang="JA" for="name">共通設定1</item>
+				</translations>
+				
+				<!-- タブの中に表示される設定の一覧 -->
+				<items>
+					<item id="selectbox">
+						<!-- エレメント（要素）のタイプ: 以下の要素を指定出来ます。
+                            input, textarea, password, checkbox, selectbox, multiple select, 
+                            multiple checkboxes, countries list, states list, 
+                            file, info, header, template
+                        -->
+						<type>selectbox</type>
+						
+						<!-- デフォルト言語での設定名称 -->
+						<name>Selectbox</name>
+						
+						<!-- 設定の翻訳 -->
+						<translations>
+							<item lang="JA">単純なリスト</item>
+						</translations>
+						
+						<!-- 要素の値 - for types selectbox, multiple select, 
+                            multiple checkboxes, combo select -->
+						<variants>
+							<item id="select_box_1">
+								<!-- 要素名 -->
+								<name>Select box item 1</name>
+								<!-- 値の翻訳 アドオン名の翻訳と似ていますが、"for"は使用しません。 -->
+								<translations>
+									<item lang="JA">リスト項目１</item>
+								</translations>
+							</item>
+							<item id="select_box_2">
+								<!-- 要素名 -->
+								<name>Select box item 2</name>
+								<!-- 値の翻訳 アドオン名の翻訳と似ていますが、"for"は使用しません。 -->
+								<translations>
+									<item lang="JA">リスト項目２</item>
+								</translations>
+							</item>
+						</variants>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+</addon>
